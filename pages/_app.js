@@ -14,10 +14,8 @@ import {
   Hydrate,
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import Layout from "../components/Layout";
 
 import "@rainbow-me/rainbowkit/styles.css";
-import "../styles/globals.css";
 
 const { chains, provider } = configureChains(
   [chain.goerli],
@@ -47,9 +45,7 @@ export default function App({ Component, pageProps }) {
           >
             <QueryClientProvider client={queryClient}>
               <Hydrate state={pageProps.dehydratedState}>
-                <Layout>
-                  <Component {...pageProps} />
-                </Layout>
+                <Component {...pageProps} />
               </Hydrate>
               <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
